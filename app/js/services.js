@@ -9,7 +9,7 @@ angular.module('myApp.services', []).
   value('version', '0.1');
 
 angular.module('F1FeederApp.services', [])
-  .factory('ergastAPIservice', function($http) {
+  .factory('ergastAPIservice', ['$http', function($http) {
 
     var ergastAPI = {};
 
@@ -21,4 +21,4 @@ angular.module('F1FeederApp.services', [])
     }
 
     return ergastAPI;
-  });
+  }]);

@@ -11,7 +11,7 @@ angular.module('myApp.controllers', [])
   }]);
 
 angular.module('F1FeederApp.controllers', [])
-  .controller('driversController', function($scope, ergastAPIservice) {
+  .controller('driversController', ['$scope', 'ergastAPIservice', function($scope, ergastAPIservice) {
     $scope.nameFilter = null;
     $scope.driversList = [];
 
@@ -23,7 +23,8 @@ angular.module('F1FeederApp.controllers', [])
         //With this, we limit search attributes to only givenName and familyName
         $scope.searchFilter = function (driver) {
             var keyword = new RegExp($scope.nameFilter, 'i');
-            return !$scope.nameFilter || keyword.test(driver.Driver.givenName) || keyword.test(driver.Driver.familyName);
+            return !$scope.nameFilter || keyword.test(driver.Driver.givenName) 
+              || keyword.test(driver.Driver.familyName);
         };
     });
     
@@ -51,4 +52,4 @@ angular.module('F1FeederApp.controllers', [])
     //       ]
     //   }    
     // ];
-  });
+  }]);
