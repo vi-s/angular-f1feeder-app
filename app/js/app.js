@@ -22,6 +22,8 @@ angular.module('F1FeederApp', [
 ])
   .config(['$routeProvider', function($routeProvider) {
     $routeProvider
+      //Controller for view can either be specified here, or when not using a partial,
+      //you can specify a controller in the view itself using ng-controller directive.
       .when('/drivers', {templateUrl: 'partials/drivers.html', controller: 'driversController'})
       .when('/drivers/:id', {templateUrl: 'partials/driver.html', controller: 'driverController'})
       .otherwise({redirectTo: '/drivers'});
